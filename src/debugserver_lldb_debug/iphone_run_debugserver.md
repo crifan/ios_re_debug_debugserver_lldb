@@ -43,7 +43,8 @@ iPhone中用debugserver启动（抖音）app：
   debugserver -x auto 0.0.0.0:20221 /private/var/containers/Bundle/Application/9AB25481-0AD3-435C-A02E-68F9623535BB/Aweme.app/Aweme
   ```
   * 说明
-    * 关于如何获取到iOS的app二进制的完整路径，详见：[获取iOS的app二进制路径](../usage_note/ios_bin_full_path.md)
+    * 关于如何获取到iOS的app二进制的完整路径，详见：
+      * [二进制文件路径 · iOS逆向：心得集锦 (crifan.org)](https://book.crifan.org/books/ios_re_experience_collection/website/ios_app/bin_path.html)
 
 ### 相关说明
 

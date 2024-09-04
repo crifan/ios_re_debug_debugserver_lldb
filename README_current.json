@@ -1,6 +1,6 @@
 {
-  "latestVersion": "v1.0",
-  "lastUpdate": "20231021",
+  "latestVersion": "v1.1.0",
+  "lastUpdate": "20240904",
   "gitRepoName": "ios_re_debug_debugserver_lldb",
   "bookName": "iOS逆向调试：debugserver+lldb",
   "bookDescription": "介绍iOS逆向中动态调试中的其中一种方式：debugserver+lldb。先是概览；然后再去详细介绍如何调试，首先是确保iPhone中debugserver有正确的权限，接着是iPhone中用debugserver启动app，最后是Mac中用lldb去调试app；接着单独介绍debugserver，包括原始的位置和来源，以及附录上原始entitlement权限供参考，以及help语法；然后介绍lldb；然后总结使用心得，包括获取iOS的app二进制路径，entitlement权限的如何查看权限、如何重签名；以及常见问题，包括运行崩溃killed等内容。"

@@ -12,7 +12,6 @@
   * [help语法](debugserver/help_syntax.md)
 * [lldb](lldb/README.md)
 * [使用心得](usage_note/README.md)
-  * [获取iOS的app二进制路径](usage_note/ios_bin_full_path.md)
   * [entitlement权限](usage_note/entitlement/README.md)
     * [查看entitlement权限](usage_note/entitlement/check_entitlement/README.md)
     * [重签名](usage_note/entitlement/re_codesign.md)
