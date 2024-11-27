@@ -10,6 +10,7 @@
 * 【已解决】ldld加了entitlement权限后debugserver运行崩溃：Bad Mach-O EXC_CRASH SIGKILL CODESIGNING
 * 【已解决】ldid查看二进制的entitlement时输出2份相同的信息
 * 【已解决】debugserver加了权限后放回iPhone8无法运行而崩溃报错killed
+* 【记录】iOS逆向MobileActivation：用单独的lldb去调试MobileActivation
 * 
 * [使用LLDB远程调试iOS程序 · 大专栏 (dazhuanlan.com)](https://www.dazhuanlan.com/letv/topics/1089378)
 * [实战：干掉高德地图7.2.0版iOS客户端的反动态调试保护 - 干货分享 | Blog - iOSRE](https://iosre.com/t/7-2-0-ios/770)

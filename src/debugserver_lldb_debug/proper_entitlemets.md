@@ -15,6 +15,51 @@ scp root@192.168.0.58:/Developer/usr/bin/debugserver .
   * `/Developer/usr/bin/debugserver`：`iPhone`中的`debugserver`的所在目录，原始的`debugserver`
   * `.`：当前文件夹
 
+### 常见问题
+
+#### 找不到`/Developer/usr/bin/debugserver`
+
+* 如果找不到`/Developer/usr/bin/debugserver`，则说明：之前还没连接过Xcode去调试过此iPhone
+  * 具体解释
+    * 详见：[debugserver](../debugserver/README.md)
+  * 解决办法
+    * 自己从`Xcode`对应目录中，找个相同（或最接近的版本的）`DeveloperDiskImage.dmg`
+      * 举例
+        * 此处就没找到，和此处`iOS 12.5.7`的`iPhone6`匹配的：`iOS 12.5`的，只能找最接近的`iOS 12.4`的
+          * `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/12.4/`
+            * ![mac_xcode_support_ios_12_4](../assets/img/mac_xcode_support_ios_12_4.png)
+    * 双击后会自动挂载到Mac中的Volume：`/Volumes/DeveloperDiskImage/`
+    * 从中提取出`/usr/bin/debugserver`即可
+      * 对应完整路径就是：`/Volumes/DeveloperDiskImage/usr/bin/debugserver`
+
+#### debugserver运行报错：dyld Symbol not found Abort trap 6
+
+此处直接尝试用，之前从某个`iOS 13.3.1`的`iPhone7`中拷贝出的（且重签名后的）`debugserver`，放到`iOS 12.4.7`的`iPhone6`中去运行，结果直接报错：
+
+```bash
+iPhone6-1257:/Developer root# which debugserver
+/usr/bin/debugserver
+iPhone6-1257:/Developer root# debugserver --version
+dyld: Symbol not found: ___chkstk_darwin
+  Referenced from: /usr/bin/debugserver (which was built for iOS 13.3)
+  Expected in: /usr/lib/libSystem.B.dylib
+ in /usr/bin/debugserver
+Abort trap: 6
+```
+
+![debugserver_dyld_symbol_not_found_abort_trap_6](../assets/img/debugserver_dyld_symbol_not_found_abort_trap_6.png)
+
+所以说结论就是：
+
+至少是，`iOS`的大版本不同的话，就像此处的：
+
+* `iOS 12`
+  * `iOS 12.5.7`
+* `iOS 13`
+  * `iOS 13.3.1`
+
+则对应的`debugserver`，是无法通用的。
+
 ## Mac中：给debugserver加上合适的权限
 
 关于加上合适权限，很多人，其他人，都是说的思路是：
@@ -88,7 +133,7 @@ scp root@192.168.0.58:/Developer/usr/bin/debugserver .
 ## Mac中：把加了entitlement权限的`debugserver`拷贝回`iPhone`中
 
 ```bash
-scp debugserver root@192.168.0.58:/usr/bin
+scp debugserver root@192.168.0.58:/usr/bin/
 ```
 
 说明：
